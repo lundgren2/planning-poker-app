@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Login from './pages/Login';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
+import { ThemeProvider } from 'emotion-theming';
+import GlobalStyles from './components/GlobalStyles';
+import LoginView from './views/LoginView';
+import theme from './config/theme';
+
+import Header from './components/Header';
 
 function Index() {
   return <h2>Home</h2>;
@@ -11,6 +19,18 @@ function Index() {
 function Dashboard() {
   return <h2>Dashboard</h2>;
 }
+
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true;
+    setTimeout(cb, 100);
+  },
+  signout(cb) {
+    this.isAuthenticated = false;
+    setTimeout(cb, 100);
+  },
+};
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -28,28 +48,16 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/dashboard/">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/users/">Users</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <Router>
-          <Route path="/" exact component={Index} />
-          <PrivateRoute path="/dashboard/" component={Dashboard} />
-        </Router>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <GlobalStyles />
+          <Router>
+            <Header />
+            <Route path="/" exact component={Index} />
+            <PrivateRoute path="/dashboard/" component={Dashboard} />
+          </Router>
+        </div>
+      </ThemeProvider>
     );
   }
 }
