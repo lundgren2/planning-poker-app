@@ -3,7 +3,7 @@ import { darken } from 'polished';
 const breakpoints = [768, 1024, '64em'];
 
 const brand = {
-  primary: '#D0FFE3',
+  primary: 'rgb(215, 70, 75)',
   secondary: '#B1D8C6',
 };
 
