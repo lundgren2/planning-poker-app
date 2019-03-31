@@ -1,6 +1,7 @@
 import React from 'react';
 import { RotateCw } from 'react-feather';
-import styled, { keyframes } from '@emotion/styled';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/core';
 
 const rotate = keyframes`
   from {

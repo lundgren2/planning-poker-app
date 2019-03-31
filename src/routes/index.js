@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { DashboardView, LoginView } from '../views';
-import UserAreaRouter from '../Components/auth/UserAreaRouter';
-import AuthenticationRouter from '../Components/auth/AuthenticationRouter';
+import UserAreaRouter from '../components/auth/UserAreaRouter';
+import AuthenticationRouter from '../components/auth/AuthenticationRouter';
 
 function DashboardView() {
-  return <h2>Sandwiches</h2>;
+  return <h2>Dashboard shit</h2>;
 }
 function LoginView() {
-  return <h2>Sandwiches</h2>;
+  return <h2>Login here</h2>;
 }
 
 export default (

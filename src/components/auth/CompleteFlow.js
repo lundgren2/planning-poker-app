@@ -9,6 +9,8 @@ const Cookies = require('js-cookie');
 const SUCCESS = true;
 const FAILURE = false;
 
+// const [SUCCESS, FAILURE] = [true, false];
+
 class CompleteFlow extends Component {
   componentWillMount() {
     const queryParameters = queryString.parse(window.location.search);
@@ -17,20 +19,21 @@ class CompleteFlow extends Component {
     this.prepare();
 
     if (code !== undefined) {
-      fetch(`${process.env.REACT_APP_GRAPHQL_URL}/auth/acquire_token?code=${code}`)
-        .then((response) => {
+      fetch(
+        `${process.env.REACT_APP_GRAPHQL_URL}/auth/acquire_token?code=${code}`
+      )
+        .then(response => {
           if (response.status >= 400 && response.status < 600) {
             throw new Error('Bad response from server');
           }
           return response.text();
         })
-        .then((token) => {
-          this.props.client.resetStore()
-            .then(() => {
-              // Bad things will happen if we do this asynchronously!
-              Cookies.set('ACCESS_TOKEN', token);
-              this.complete(SUCCESS);
-            });
+        .then(token => {
+          this.props.client.resetStore().then(() => {
+            // Bad things will happen if we do this asynchronously!
+            Cookies.set('ACCESS_TOKEN', token);
+            this.complete(SUCCESS);
+          });
         })
         .catch(() => {
           this.complete(FAILURE);
@@ -56,19 +59,12 @@ class CompleteFlow extends Component {
 
   render() {
     if (this.state.pending) {
-      return (
-        <FullscreenLoading/>
-      );
+      return <FullscreenLoading />;
     } else if (this.state.success) {
-      return (
-        <Redirect to="/sites"/>
-      );
+      return <Redirect to="/sites" />;
     }
-    return (
-      <Redirect to="/login/failed"/>
-    );
+    return <Redirect to="/login/failed" />;
   }
 }
 
 export default withApollo(CompleteFlow);
-
