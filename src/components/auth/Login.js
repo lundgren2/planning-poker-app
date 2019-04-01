@@ -2,12 +2,10 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import { css } from '@emotion/core';
-import { Flex, Box } from '@rebass/emotion';
+import { Flex } from '@rebass/emotion';
 import Button from '../Button';
 import Form from '../Form';
 import { H2 } from '../Heading';
-import Container from '../Container';
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
@@ -36,46 +34,44 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <Container>
-        <Flex flexDirection="column">
-          <Form>
-            <H2>Login</H2>
-            <br />
-            <div>
-              <input
-                value={email}
-                onChange={e => this.setState({ email: e.target.value })}
-                type="text"
-                placeholder="timmy@acme.se"
-              />
-              <label htmlFor="input">Email</label>
-            </div>
-            <div>
-              <input
-                value={password}
-                onChange={e => this.setState({ password: e.target.value })}
-                type="password"
-                placeholder="Choose a safe password"
-              />
-              <label htmlFor="input">Password</label>
-            </div>
+      <Flex flexDirection="column">
+        <Form>
+          <H2>Login</H2>
+          <br />
+          <div>
+            <input
+              value={email}
+              onChange={e => this.setState({ email: e.target.value })}
+              type="text"
+              placeholder="timmy@acme.se"
+            />
+            <label htmlFor="input">Email</label>
+          </div>
+          <div>
+            <input
+              value={password}
+              onChange={e => this.setState({ password: e.target.value })}
+              type="password"
+              placeholder="Choose a safe password"
+            />
+            <label htmlFor="input">Password</label>
+          </div>
 
-            <Mutation
-              mutation={LOGIN_MUTATION}
-              variables={{ email, password }}
-              onCompleted={data => this.confirm(data)}
-            >
-              {mutation => (
-                <div onClick={mutation}>
-                  <Button primary onClick={e => e.preventDefault()}>
-                    Login
-                  </Button>
-                </div>
-              )}
-            </Mutation>
-          </Form>
-        </Flex>
-      </Container>
+          <Mutation
+            mutation={LOGIN_MUTATION}
+            variables={{ email, password }}
+            onCompleted={data => this.confirm(data)}
+          >
+            {mutation => (
+              <div onClick={mutation}>
+                <Button primary onClick={e => e.preventDefault()}>
+                  Login
+                </Button>
+              </div>
+            )}
+          </Mutation>
+        </Form>
+      </Flex>
     );
   }
 }

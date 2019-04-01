@@ -1,4 +1,4 @@
-import LandingView from './LandingView';
+import LoginView from './LoginView';
 import DashboardView from './DashboardView';
 
-export { LandingView, DashboardView };
+export { LoginView, DashboardView };

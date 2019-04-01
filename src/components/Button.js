@@ -6,7 +6,6 @@ const Button = styled('button')`
   background: ${props => (props.primary ? theme.colors.primary : 'white')};
   color: ${props => (props.primary ? 'white' : 'black')};
   font-size: 21px;
-  margin: 1em;
   min-width: 12rem;
   padding: 16px 32px;
   border: 2px solid ${theme.colors.primary};

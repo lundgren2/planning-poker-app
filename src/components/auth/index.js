@@ -1,3 +1,4 @@
 import Login from './Login';
+import * as functions from './functions';
 
-export default Login;
+export { Login as default, functions };

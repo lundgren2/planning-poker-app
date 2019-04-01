@@ -23,10 +23,8 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
 export default (
   <Router>
     <Switch>
-      <DashboardView>
-        <PrivateRoute exact path="/" component={Stories} />
-      </DashboardView>
-      <Route path="/login" component={Login} />
+      <PrivateRoute exact path="/" component={DashboardView} />
+      <Route path="/login" component={LoginView} />
     </Switch>
   </Router>
 );
