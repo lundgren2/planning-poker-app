@@ -2,16 +2,24 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import { Flex } from '@rebass/emotion';
+import { Flex, Link } from '@rebass/emotion';
+import styled from '@emotion/styled';
 import Button from '../Button';
 import Form from '../Form';
 import { H2 } from '../Heading';
 
-const LOGIN_MUTATION = gql`
-  mutation LoginMutation($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-    }
+const StyledLink = styled(Link)`
+  cursor: pointer;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-left: 20px;
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -23,23 +31,23 @@ class Login extends Component {
     name: '',
   };
 
-  confirm = async data => {
-    const { token } = data.login;
-    this.saveUserData(token);
-    this.props.history.push(`/`);
-  };
-
-  saveUserData = token => {
-    localStorage.setItem(process.env.REACT_APP_AUTH_TOKEN, token);
-  };
-
   render() {
-    const { email, password } = this.state;
+    const { login, email, password, name } = this.state;
     return (
       <Flex flexDirection="column">
         <Form>
-          <H2>Login</H2>
-          <br />
+          <H2>{login ? 'Login' : 'Sign Up'}</H2>
+          {!login && (
+            <div>
+              <input
+                value={name}
+                onChange={e => this.setState({ name: e.target.value })}
+                type="text"
+                placeholder="Your name"
+              />{' '}
+              <label htmlFor="input">Name</label>
+            </div>
+          )}
           <div>
             <input
               value={email}
@@ -58,24 +66,59 @@ class Login extends Component {
             />
             <label htmlFor="input">Password</label>
           </div>
-
-          <Mutation
-            mutation={LOGIN_MUTATION}
-            variables={{ email, password }}
-            onCompleted={data => this.confirm(data)}
-          >
-            {mutation => (
-              <div onClick={mutation}>
-                <Button primary onClick={e => e.preventDefault()}>
-                  Login
-                </Button>
-              </div>
-            )}
-          </Mutation>
+          <div>
+            <Mutation
+              mutation={LOGIN_MUTATION}
+              variables={{ email, password }}
+              onCompleted={data => this.confirm(data)}
+            >
+              {mutation => (
+                <span onClick={mutation}>
+                  <Button primary onClick={e => e.preventDefault()}>
+                    {login ? 'Login' : 'Create account'}
+                  </Button>
+                </span>
+              )}
+            </Mutation>
+            <StyledLink
+              as="span"
+              onClick={() => this.setState({ login: !login })}
+            >
+              {login
+                ? 'Need to create an account?'
+                : 'Already have an account?'}
+            </StyledLink>
+          </div>
         </Form>
       </Flex>
     );
   }
+
+  confirm = async data => {
+    const { token } = data.login;
+    this.saveUserData(token);
+    this.props.history.push(`/`);
+  };
+
+  saveUserData = token => {
+    localStorage.setItem(process.env.REACT_APP_AUTH_TOKEN, token);
+  };
 }
 
 export default Login;
+
+const SIGNUP_MUTATION = gql`
+  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
+    signup(email: $email, password: $password, name: $name) {
+      token
+    }
+  }
+`;
+
+const LOGIN_MUTATION = gql`
+  mutation LoginMutation($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+    }
+  }
+`;

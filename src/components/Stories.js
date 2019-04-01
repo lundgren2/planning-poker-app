@@ -5,6 +5,7 @@ export default () => {
   const fetchStories = () => {
     // fetch here
   };
+
   return (
     <div>
       <H2>Stories</H2>

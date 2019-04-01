@@ -11,6 +11,9 @@ const Button = styled('button')`
   border: 2px solid ${theme.colors.primary};
   border-radius: 3rem;
   cursor: pointer;
+  &:hover {
+    background-color: ${theme.linkHover};
+  }
   &:focus {
     outline: none;
   }

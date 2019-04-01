@@ -9,5 +9,6 @@ module.exports = {
     'no-unused-expressions': 0,
     'no-else-return': 0,
     'react/prefer-stateless-function': 0,
+    'react/sort-comp': 0,
   },
 };

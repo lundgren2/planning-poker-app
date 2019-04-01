@@ -4,8 +4,8 @@ import Container from '../components/Container';
 import Logo from '../components/Logo';
 import { checkAuth } from '../components/auth/functions';
 
-export default (props, { history }) => {
-  // if (checkAuth()) history.push('/');
+export default props => {
+  if (checkAuth()) props.history.push('/');
 
   return (
     <Container border>

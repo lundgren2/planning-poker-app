@@ -8,10 +8,11 @@ const Logo = styled('h1')`
   font-size: 3rem;
   font-style: italic;
   user-select: none;
+  margin-bottom: 1rem;
 `;
 
-export default () => (
-  <Logo>
+export default props => (
+  <Logo {...props}>
     Planning P<Aperture size="0.6em" color={colors.primary} />
     ker
   </Logo>
