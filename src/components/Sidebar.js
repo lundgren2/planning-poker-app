@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+import { Plus } from 'react-feather';
 import Logo from './Logo';
 
 const Sidebar = styled('nav')`
@@ -31,9 +33,9 @@ const LogoContainer = styled('div')`
 export default () => (
   <Sidebar id="sidebar">
     <Logo />
-    {/* <LogoContainer /> */}
-    <a href="#">Stories</a>
-    <a href="#">Add story</a>
-    <a href="#">Account</a>
+    <Link to="/">Stories</Link>
+    <Link to="/add-story">
+      <Plus /> Add story
+    </Link>
   </Sidebar>
 );

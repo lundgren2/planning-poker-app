@@ -24,10 +24,11 @@ const Wrapper = styled('div')`
 
 const Main = styled('main')`
   grid-area: main;
+  height: 100vh;
 `;
 
 export default ({ children }) => (
-  <Wrapper id="App">
+  <Wrapper>
     <Sidebar />
     <Main>
       <Container>{children}</Container>

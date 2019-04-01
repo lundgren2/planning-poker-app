@@ -1,5 +1,13 @@
 import React from 'react';
+import { H2 } from './Heading';
 
 export default () => {
-  return <div>Stories</div>;
+  const fetchStories = () => {
+    // fetch here
+  };
+  return (
+    <div>
+      <H2>Stories</H2>
+    </div>
+  );
 };

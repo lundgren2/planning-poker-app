@@ -5,11 +5,9 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import gql from 'graphql-tag';
 import { DashboardView, LoginView } from '../views';
-import Login from '../components/auth/Login';
-import Stories from '../components/Stories';
 import { checkAuth } from '../components/auth/functions';
+import Stories from '../components/Stories';
 
 const PrivateRoute = ({ component: Component, user, ...rest }) => (
   <Route
@@ -23,8 +21,10 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
 export default (
   <Router>
     <Switch>
-      <PrivateRoute exact path="/" component={DashboardView} />
       <Route path="/login" component={LoginView} />
+      <DashboardView>
+        <PrivateRoute exact path="/" component={Stories} />
+      </DashboardView>
     </Switch>
   </Router>
 );

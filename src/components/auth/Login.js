@@ -17,8 +17,10 @@ const LOGIN_MUTATION = gql`
 
 class Login extends Component {
   state = {
+    login: true, // switch between Login and SignUp
     email: '',
     password: '',
+    name: '',
   };
 
   confirm = async data => {
