@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from '@emotion/styled';
-import logo from '../../images/logo-black.svg';
+// import logo from '../../images/logo-black.svg';
 
 const Wrapper = styled('div')`
   width: 100%;
@@ -36,7 +36,8 @@ const RightSidebar = () => (
       <a href="#">Account</a>
     </div>
     <LogoContainer>
-      <img src={logo} alt="logo" />
+      {/* <img src={logo} alt="logo" /> */}
+      Logo
     </LogoContainer>
   </Wrapper>
 );

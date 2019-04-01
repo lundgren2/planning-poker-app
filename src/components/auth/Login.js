@@ -4,10 +4,10 @@ import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import { css } from '@emotion/core';
 import { Flex, Box } from '@rebass/emotion';
-import Button from './Button';
-import Form from './Form';
-import { H2 } from './Heading';
-import Container from './Container';
+import Button from '../Button';
+import Form from '../Form';
+import { H2 } from '../Heading';
+import Container from '../Container';
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
@@ -31,10 +31,6 @@ class Login extends Component {
 
   saveUserData = token => {
     localStorage.setItem(process.env.REACT_APP_AUTH_TOKEN, token);
-  };
-
-  handleLoginClick = e => {
-    e.preventDefaults();
   };
 
   render() {

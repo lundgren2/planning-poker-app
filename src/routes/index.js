@@ -1,28 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import { DashboardView, LoginView } from '../views';
-import UserAreaRouter from '../components/auth/UserAreaRouter';
-import AuthenticationRouter from '../components/auth/AuthenticationRouter';
-import Login from '../components/Login';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
+import gql from 'graphql-tag';
+import { DashboardView, LoginView } from '../views';
+import Login from '../components/auth/Login';
+import Stories from '../components/Stories';
+import { checkAuth } from '../components/auth/functions';
 
-function DashboardView() {
-  return <h2>Dashboard shit</h2>;
-}
+const PrivateRoute = ({ component: Component, user, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      checkAuth() ? <Component {...props} /> : <Redirect to="/login" />
+    }
+  />
+);
 
 export default (
   <Router>
-    <>
-      <Switch>
-        <Route path="/auth" component={AuthenticationRouter} />
-        <UserAreaRouter>
-          {({ isAuthenticated }) => {
-            if (isAuthenticated) {
-              return <Route path="/" component={DashboardView} />;
-            }
-            return <Route path="/" component={Login} />;
-          }}
-        </UserAreaRouter>
-      </Switch>
-    </>
+    <Switch>
+      <DashboardView>
+        <PrivateRoute exact path="/" component={Stories} />
+      </DashboardView>
+      <Route path="/login" component={Login} />
+    </Switch>
   </Router>
 );

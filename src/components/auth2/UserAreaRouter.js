@@ -9,9 +9,7 @@ export default ({ children }) => (
       const isAuthenticated = !loading && !error && data.currentUser !== null;
 
       if (loading) {
-        return (
-          <FullscreenLoading />
-        );
+        return <FullscreenLoading />;
       } else {
         return children({ isAuthenticated });
       }
