@@ -64,11 +64,11 @@ const CardItem = styled('div')`
   }
 `;
 
-export default ({ story = { text: 'test' } }) => (
+export default ({ story }) => (
   <CardItem class="card-item">
     <img src={eslogo} alt="" srcSet="" />
-    <h2>Title</h2>
-    <span className="card-item__text">{story.text}</span>
+    <h2>{story.title}</h2>
+    <span className="card-item__text">{story.description}</span>
   </CardItem>
 );
 

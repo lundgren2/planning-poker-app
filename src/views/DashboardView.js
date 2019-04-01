@@ -25,6 +25,7 @@ const Wrapper = styled('div')`
 const Main = styled('main')`
   grid-area: main;
   height: 100vh;
+  position: relative;
 `;
 
 export default ({ children }) => (

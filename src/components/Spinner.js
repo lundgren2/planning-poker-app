@@ -17,10 +17,9 @@ const Cover = styled('div')`
     position: absolute;
     left: 45%;
     right: 45%;
-    top: 45%;
-    bottom: 45%;
-    width: 10%;
-    height: 10%;
+    top: 38%;
+    width: 60px;
+    height: 60px;
     -webkit-animation: ${rotate} 2s infinite linear;
   }
 `;

@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import { Flex, Link } from '@rebass/emotion';
+import { Flex } from '@rebass/emotion';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import Button from '../Button';
 import Form from '../Form';
