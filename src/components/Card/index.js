@@ -55,7 +55,8 @@ const CardItem = styled('div')`
     opacity: 0.8;
   }
   &:hover {
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.32);
+    box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.08),
+      0 8px 32px 0 rgba(255, 255, 255, 0.32);
   }
   img {
     max-width: 50%;
