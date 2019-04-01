@@ -44,7 +44,7 @@ class Login extends Component {
                 onChange={e => this.setState({ name: e.target.value })}
                 type="text"
                 placeholder="Your name"
-              />{' '}
+              />
               <label htmlFor="input">Name</label>
             </div>
           )}
@@ -68,7 +68,7 @@ class Login extends Component {
           </div>
           <div>
             <Mutation
-              mutation={LOGIN_MUTATION}
+              mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
               variables={{ email, password }}
               onCompleted={data => this.confirm(data)}
             >

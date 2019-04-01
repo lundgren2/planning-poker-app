@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { Plus } from 'react-feather';
 import Logo from './Logo';
+import media from '../utils/media';
 
 const Sidebar = styled('nav')`
   position: fixed;
@@ -24,10 +25,19 @@ const Sidebar = styled('nav')`
       opacity: 0.7;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
-const LogoContainer = styled('div')`
-  opacity: 0.7;
+const Credits = styled('div')`
+  position: fixed;
+  bottom: 40px;
+  font-size: 80%;
+  a:hover {
+    background: none;
+  }
 `;
 
 export default () => (
@@ -37,5 +47,10 @@ export default () => (
     <Link to="/add-story">
       <Plus /> Add story
     </Link>
+    <Credits>
+      <a href="https://www.github.com/lundgren2" target="_blank" rel="me">
+        © Tobias Lundgren
+      </a>
+    </Credits>
   </Sidebar>
 );

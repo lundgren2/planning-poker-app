@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from '@emotion/styled';
-import { PlusSquare } from 'react-feather';
+import { PlusCircle } from 'react-feather';
+import eslogo from '../../images/epidemic-sound-logo.svg';
 
 export const CardContainer = styled('div')`
   display: grid;
@@ -17,7 +18,7 @@ const CardItem = styled('div')`
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.16);
   border: 0px solid #d1d6db;
   border-radius: 6px;
-  background-color: #fff;
+  background-color: #f0f0f0;
   padding: 1em;
   color: ${props => props.theme.baseColor};
   text-decoration: none;
@@ -40,23 +41,24 @@ const CardItem = styled('div')`
     opacity: 0.2;
   }
   &:hover .card-item__icon {
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.colors.primary};
     opacity: 0.8;
   }
   &:hover {
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.32);
   }
   img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
 `;
 
-export default ({ img, text }) => (
+export default ({ story = { text: 'test' } }) => (
   <CardItem class="card-item">
-    <img src={img} alt="" srcSet="" />
-    <span className="card-item__text">{text}</span>
+    <img src={eslogo} alt="" srcSet="" />
+    <h2>Title</h2>
+    <span className="card-item__text">{story.text}</span>
   </CardItem>
 );
 
@@ -64,11 +66,11 @@ export const AddCard = () => (
   <CardItem className="card-item">
     <div className="card-item__icon-container">
       <span className="card-item__icon">
-        <PlusSquare size={100} />
+        <PlusCircle size={100} />
       </span>
     </div>
     <span className="card-item__text">
-      Add new site
+      Add new story
       <i className="fas fa-arrow-right" />
     </span>
   </CardItem>

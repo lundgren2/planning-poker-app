@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { DashboardView, LoginView } from '../views';
 import { checkAuth } from '../components/auth/functions';
-import Stories from '../components/Stories';
+import Stories from '../components/Game/Stories';
 
 const PrivateRoute = ({ component: Component, user, ...rest }) => (
   <Route
@@ -24,6 +24,7 @@ export default (
       <Route path="/login" component={LoginView} />
       <DashboardView>
         <PrivateRoute exact path="/" component={Stories} />
+        <PrivateRoute exact path="/add-story" component={Stories} />
       </DashboardView>
     </Switch>
   </Router>
