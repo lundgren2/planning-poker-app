@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from '@emotion/styled';
-import { PlusCircle } from 'react-feather';
+import { PlusCircle, ArrowRight } from 'react-feather';
 import eslogo from '../../images/epidemic-sound-logo.svg';
 
 export const CardContainer = styled('div')`
@@ -8,6 +8,11 @@ export const CardContainer = styled('div')`
   grid-gap: 2em;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: 1fr;
+
+  a {
+    text-decoration: none;
+    background: none;
+  }
 `;
 
 const CardItem = styled('div')`
@@ -24,6 +29,7 @@ const CardItem = styled('div')`
   text-decoration: none;
   transition: ${props => props.theme.animation};
   cursor: pointer;
+
   .card-item__icon-container {
     display: flex;
     justify-content: center;
@@ -36,9 +42,13 @@ const CardItem = styled('div')`
     justify-content: center;
     height: 240px;
     font-size: 5em;
-    color: ${props => props.theme.baseColor};
+    color: ${props => props.theme.colors.text};
     transition: ${props => props.theme.animation};
     opacity: 0.2;
+  }
+  .card-item__text {
+    color: ${props => props.theme.colors.text};
+    text-decoration: none !important;
   }
   &:hover .card-item__icon {
     color: ${props => props.theme.colors.primary};
@@ -69,9 +79,6 @@ export const AddCard = () => (
         <PlusCircle size={100} />
       </span>
     </div>
-    <span className="card-item__text">
-      Add new story
-      <i className="fas fa-arrow-right" />
-    </span>
+    <span className="card-item__text">Add new story</span>
   </CardItem>
 );
