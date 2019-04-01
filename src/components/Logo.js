@@ -1,15 +1,18 @@
 import React from 'react';
-import { jsx, css } from '@emotion/core';
+import styled from '@emotion/styled';
+import { Aperture } from 'react-feather';
+import { colors } from '../config/theme';
 
-export default function Logo() {
-  return (
-    <h1
-      css={css`
-        word-break: break-all;
-        font-size: 4rem;
-      `}
-    >
-      Planning Poker
-    </h1>
-  );
-}
+const Logo = styled('h1')`
+  word-break: break-all;
+  font-size: 3rem;
+  font-style: italic;
+  user-select: none;
+`;
+
+export default () => (
+  <Logo>
+    Planning P<Aperture size="0.6em" color={colors.primary} />
+    ker
+  </Logo>
+);

@@ -6,6 +6,6 @@ export default styled('div')`
   width: 80%;
   font-size: 10px;
   margin: 10% auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
   padding: 40px;
 `;

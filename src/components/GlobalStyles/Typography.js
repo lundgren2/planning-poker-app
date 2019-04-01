@@ -12,12 +12,12 @@ export default () => (
       body {
         color: ${colors.text};
         font-family: ${fonts.default};
-        font-size: ${fonts.size};
+        font-size: ${fonts.sizeSm};
         line-height: 1.45;
         text-decoration-skip: ink;
-        /* @media ${media.medium} {
+        @media ${media.medium} {
           font-size: ${fonts.sizeMd};
-        } */
+        }
       }
       h1,
       h2,

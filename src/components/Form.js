@@ -5,18 +5,14 @@ export default styled('form')`
   /* css-variables */
   --gutterSm: 0.4rem;
   --gutterMd: 0.8rem;
-  --gutterLg: 1.6rem;
+  --gutterLg: 1.4rem;
   --gutterXl: 2.4rem;
   --gutterXx: 7.2rem;
   --colorPrimary400: #7e57c2;
   --colorPrimary600: #5e35b1;
   --colorPrimary800: #4527a0;
   --fontFamily: 'Dosis', sans-serif;
-  --fontSizeSm: 1.2rem;
-  --fontSizeMd: 1.6rem;
-  --fontSizeLg: 2.1rem;
-  --fontSizeXl: 2.8rem;
-  --fontSizeXx: 3.6rem;
+  --fontSizeSm: 1rem;
   --lineHeightSm: 1.1;
   --lineHeightMd: 1.8;
   --transitionDuration: 300ms;
