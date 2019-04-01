@@ -8,6 +8,7 @@ export default () => (
 
       body {
         font-family: azo-sans-web, sans-serif;
+        font-size: 800%;
       }
     `}
   />

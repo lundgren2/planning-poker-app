@@ -3,7 +3,7 @@ import { Global, css } from '@emotion/core';
 
 export default () => (
   <Global
-    css={css`
+    styles={css`
       body {
         background: #000;
       }

@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { DashboardView, LoginView } from '../views';
 import UserAreaRouter from '../components/auth/UserAreaRouter';
 import AuthenticationRouter from '../components/auth/AuthenticationRouter';
+import Login from '../components/Login';
 
 function DashboardView() {
   return <h2>Dashboard shit</h2>;
-}
-function LoginView() {
-  return <h2>Login here</h2>;
 }
 
 export default (
@@ -21,7 +19,7 @@ export default (
             if (isAuthenticated) {
               return <Route path="/" component={DashboardView} />;
             }
-            return <Route path="/" component={LoginView} />;
+            return <Route path="/" component={Login} />;
           }}
         </UserAreaRouter>
       </Switch>
