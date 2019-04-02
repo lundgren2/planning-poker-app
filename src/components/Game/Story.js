@@ -38,6 +38,8 @@ const Story = ({ match, history }) => (
             {mutation => <Link onClick={mutation}>Delete</Link>}
           </Mutation>
           <hr />
+          <h4>Data</h4>
+          Link to story: <code>{window.location.href}</code>
           <p>Export card as JSON:</p>
           <code>{JSON.stringify(story, 0, 2)}</code>
         </div>
