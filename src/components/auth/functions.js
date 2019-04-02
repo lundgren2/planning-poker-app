@@ -10,22 +10,21 @@ export const checkAuth = () => {
   return true;
 };
 
-const GET_USER = gql`
-  {
-    me {
-      id
-      name
-      email
-    }
-  }
-`;
+// const GET_USER = gql`
+//   {
+//     me {
+//       id
+//       name
+//       email
+//     }
+//   }
+// `;
 
-export const getUser = () => (
-  <Query query={GET_USER}>
-    {({ loading, error, data }) => {
-      const isAuthenticated = !loading && !error && data.me !== null;
-
-      return <div>LoggedIn</div>;
-    }}
-  </Query>
-);
+// export const getUser = () => (
+//   <Query query={GET_USER}>
+//     {({ loading, error, data }) => {
+//       const isAuthenticated = !loading && !error && data.me !== null;
+//       return <div>LoggedIn</div>;
+//     }}
+//   </Query>
+// );

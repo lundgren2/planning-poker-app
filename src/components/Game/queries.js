@@ -1,10 +1,12 @@
 import gql from 'graphql-tag';
 
 export const GET_STORY = gql`
-  query site($id: ID!) {
+  query story($id: ID!) {
     story(id: $id) {
       id
-      name
+      title
+      content
+      active
     }
   }
 `;

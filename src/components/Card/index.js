@@ -66,7 +66,7 @@ const CardItem = styled('div')`
 `;
 
 export default ({ story }) => (
-  <CardItem class="card-item">
+  <CardItem className="card-item">
     <img src={eslogo} alt="" srcSet="" />
     <h2>{story.title}</h2>
     <span className="card-item__text">{story.description}</span>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'emotion-theming';

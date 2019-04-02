@@ -145,6 +145,7 @@ export default () => (
       code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
           monospace;
+        font-size: 14px;
       }
     `}
   />

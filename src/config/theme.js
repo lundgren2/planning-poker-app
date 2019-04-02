@@ -16,7 +16,7 @@ const colors = {
   white: '#fff',
   bg: '#f9f9f9',
   link: brand.primary,
-  linkHover: lighten(0.25, brand.primary),
+  linkHover: lighten(0.04, brand.primary),
 };
 
 const fonts = {
