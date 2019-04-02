@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { Query, Mutation } from 'react-apollo';
 import { Flex } from '@rebass/emotion';
+// import { Link as RebassLink } from '@rebass/emotion';
 import Spinner from '../Spinner';
-import { GET_STORY } from './queries';
+import { GET_STORY, DELETE_STORY_MUTATION } from './queries';
 
 import Button from '../Button';
 import Form from '../Form';
@@ -20,17 +20,22 @@ const Story = ({ match }) => (
 
       return (
         <div>
-          <H2>{story.title}</H2>
+          <H2>{story.title}</H2> <br />
           {story.content}
           <br />
           <Button to={`/game/${story.id}`} as={Link} primary>
             Start game
           </Button>
-
           <Button to="/" as={Link}>
             Back
           </Button>
-
+          <Mutation
+            mutation={DELETE_STORY_MUTATION}
+            variables={story.id}
+            // onCompleted={this.props.history.push(`/stories`)}
+          >
+            {mutation => <Link onClick={mutation}>Delete</Link>}
+          </Mutation>
           <hr />
           <p>Export card as JSON:</p>
           <code>{JSON.stringify(story, 0, 2)}</code>

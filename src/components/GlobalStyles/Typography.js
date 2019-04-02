@@ -87,9 +87,9 @@ export default () => (
         &:focus,
         &:active,
         &:hover {
-          background-color: ${colors.primary};
-          border-radius: 0.25rem;
-          color: ${colors.lightest};
+          /* background-color: ${colors.primary}; */
+          /* border-radius: 0.25rem; */
+          /* color: ${colors.lightest}; */
           outline: 0;
           text-decoration: none;
         }

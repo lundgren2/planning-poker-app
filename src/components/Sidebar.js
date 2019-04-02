@@ -34,7 +34,8 @@ const Sidebar = styled('nav')`
 const Credits = styled('div')`
   position: fixed;
   bottom: 40px;
-  font-size: 80%;
+  font-size: 60%;
+  opacity: 0.5;
   a:hover {
     background: none;
   }
@@ -44,12 +45,12 @@ export default () => (
   <Sidebar id="sidebar">
     <Logo />
     <Link to="/">Stories</Link>
-    <Link to="/add-story">
-      <Plus /> Add story
+    <Link to="/stories/new">
+      <Plus /> New story
     </Link>
     <Credits>
       <a href="https://www.github.com/lundgren2" target="_blank" rel="me">
-        © Tobias Lundgren
+        © 2019 Tobias Lundgren
       </a>
     </Credits>
   </Sidebar>

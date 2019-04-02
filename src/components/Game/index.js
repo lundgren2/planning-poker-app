@@ -1,7 +1,7 @@
 import Stories from './Stories';
 import Story from './Story';
-import AddStory from './AddStory';
+import NewStory from './NewStory';
 import CardPicker from './CardPicker';
 import Game from './Game';
 
-export { Stories, Story, AddStory, CardPicker, Game };
+export { Stories, Story, NewStory, CardPicker, Game };

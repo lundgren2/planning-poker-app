@@ -8,8 +8,9 @@ import Button from '../Button';
 import Form from '../Form';
 import InputText from '../InputText';
 import { H2 } from '../Heading';
+import { CREATE_STORY_MUTATION } from './queries';
 
-class AddStory extends Component {
+class NewStory extends Component {
   state = {
     title: '',
     content: '',
@@ -19,7 +20,7 @@ class AddStory extends Component {
     const { title, content } = this.state;
     return (
       <Flex flexDirection="column">
-        <H2>Add Story here!</H2>
+        <H2>Create new Story</H2>
         <Form>
           <InputText
             onChange={e => this.setState({ title: e.target.value })}
@@ -34,14 +35,12 @@ class AddStory extends Component {
           <Mutation
             mutation={CREATE_STORY_MUTATION}
             variables={{ title, content }}
-            // onCompleted={this.props.history.push(`/stories`)}
+            // onCompleted={() => this.props.history.push(`/`)}
           >
             {mutation => (
-              <span onClick={mutation}>
-                <Button primary onClick={e => e.preventDefault()}>
-                  Add story
-                </Button>
-              </span>
+              <Button as="span" primary onClick={mutation}>
+                Create story
+              </Button>
             )}
           </Mutation>
         </Form>
@@ -50,12 +49,4 @@ class AddStory extends Component {
   }
 }
 
-export default AddStory;
-
-const CREATE_STORY_MUTATION = gql`
-  mutation CreateStory($title: String!, $content: String!) {
-    createStory(title: $title, content: $content) {
-      title
-    }
-  }
-`;
+export default NewStory;

@@ -20,7 +20,7 @@ export default () => (
                 <Card key={story.id} story={story} />
               </Link>
             ))}
-            <Link to="/sites/new">
+            <Link to="/stories/new">
               <AddCard />
             </Link>
           </CardContainer>
