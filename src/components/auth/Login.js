@@ -70,7 +70,7 @@ class Login extends Component {
           <div>
             <Mutation
               mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
-              variables={{ email, password }}
+              variables={{ name, email, password }}
               onCompleted={data => this.confirm(data)}
             >
               {mutation => (
@@ -96,7 +96,7 @@ class Login extends Component {
   }
 
   confirm = async data => {
-    const { token } = data.login;
+    const { token } = this.state.login ? data.login : data.signup;
     this.saveUserData(token);
     this.props.history.push(`/`);
   };
