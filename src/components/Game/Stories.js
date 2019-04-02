@@ -8,16 +8,17 @@ import Card, { CardContainer, AddCard } from '../Card';
 
 export default () => (
   <Query query={GET_STORIES}>
-    {({ loading, error, data }) => {
+    {({ loading, error, data, refetch }) => {
       if (loading) return <Spinner />;
       if (error) return `Error! ${error.message}`;
+      refetch();
       return (
         <>
           <H2>Stories</H2>
           <CardContainer>
             {data.stories.map(story => (
               <Link to={`/stories/${story.id}`}>
-                <Card key={story.id} story={story} />
+                <Card key={story.id} story={story} refresh={() => refetch()} />
               </Link>
             ))}
             <Link to="/stories/new">

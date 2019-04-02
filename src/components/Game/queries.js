@@ -24,15 +24,15 @@ export const GET_STORIES = gql`
   }
 `;
 
-export const DELETE_STORY_MUTATION = gql`
-  mutation deleteStory($id: ID) {
+export const DELETE_STORY = gql`
+  mutation deleteStory($id: ID!) {
     deleteStory(id: $id) {
       id
     }
   }
 `;
 
-export const CREATE_STORY_MUTATION = gql`
+export const CREATE_STORY = gql`
   mutation CreateStory($title: String!, $content: String!) {
     createStory(title: $title, content: $content) {
       title

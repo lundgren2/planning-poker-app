@@ -8,7 +8,7 @@ import Button from '../Button';
 import Form from '../Form';
 import InputText from '../InputText';
 import { H2 } from '../Heading';
-import { CREATE_STORY_MUTATION } from './queries';
+import { CREATE_STORY } from './queries';
 
 class NewStory extends Component {
   state = {
@@ -18,6 +18,7 @@ class NewStory extends Component {
 
   render() {
     const { title, content } = this.state;
+    const { history } = this.props;
     return (
       <Flex flexDirection="column">
         <H2>Create new Story</H2>
@@ -33,9 +34,9 @@ class NewStory extends Component {
             placeholder="Describe the story"
           />
           <Mutation
-            mutation={CREATE_STORY_MUTATION}
+            mutation={CREATE_STORY}
             variables={{ title, content }}
-            // onCompleted={() => this.props.history.push(`/`)}
+            onCompleted={() => history.push(`/`)}
           >
             {mutation => (
               <Button as="span" primary onClick={mutation}>
