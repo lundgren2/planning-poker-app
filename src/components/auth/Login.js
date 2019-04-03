@@ -70,7 +70,7 @@ class Login extends Component {
           <div>
             <Mutation
               mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
-              variables={{ name, email, password }}
+              variables={{ email, password, name }}
               onCompleted={data => this.confirm(data)}
             >
               {mutation => (
