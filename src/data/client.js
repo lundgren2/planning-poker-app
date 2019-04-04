@@ -7,10 +7,11 @@ import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition } from 'apollo-utilities';
 
 const apiUri = process.env.REACT_APP_GRAPHQL_URL;
+const wsUri = process.env.REACT_APP_GRAPHQL_WS;
+
 // TODO: fix to work with HTTPS
-const wsUri = apiUri.replace('http://', 'ws://');
 const wsLink = new WebSocketLink({
-  uri: 'wss://planning-poker-graphql.herokuapp.com/graphql',
+  uri: wsUri,
   options: {
     reconnect: true,
   },
