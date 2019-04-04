@@ -53,7 +53,11 @@ export default () => (
     <br />
     <Link onClick={logOut}>Sign out</Link>
     <Credits>
-      <a href="https://www.github.com/lundgren2" target="_blank" rel="me">
+      <a
+        href="https://www.github.com/lundgren2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         © 2019 Tobias Lundgren
       </a>
     </Credits>

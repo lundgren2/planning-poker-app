@@ -1,15 +1,9 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-
 import { Query, Mutation } from 'react-apollo';
-import { Flex } from '@rebass/emotion';
-// import { Link as RebassLink } from '@rebass/emotion';
 import Spinner from '../Spinner';
 import { GET_STORY, DELETE_STORY } from './queries';
-
 import Button from '../Button';
-import Form from '../Form';
-import InputText from '../InputText';
 import { H2 } from '../Heading';
 
 const Story = ({ match, history }) => (

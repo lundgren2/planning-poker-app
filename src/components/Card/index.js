@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { css } from '@emotion/styled';
-import { PlusCircle, ArrowRight } from 'react-feather';
+import styled from '@emotion/styled';
+import { PlusCircle } from 'react-feather';
 import eslogo from '../../images/epidemic-sound-logo.svg';
 
 export const CardContainer = styled('div')`
@@ -68,7 +68,7 @@ const CardItem = styled('div')`
 export default ({ story }) => (
   <CardItem className="card-item">
     <img src={eslogo} alt="" srcSet="" />
-    <h2>{story.title}</h2>
+    <h2 style={{ wordBreak: 'break-all' }}>{story.title}</h2>
     <span className="card-item__text">{story.description}</span>
   </CardItem>
 );

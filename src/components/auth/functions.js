@@ -1,7 +1,3 @@
-import gql from 'graphql-tag';
-import React from 'react';
-import { Query } from 'react-apollo';
-
 export const logOut = () => {
   localStorage.removeItem(process.env.REACT_APP_AUTH_TOKEN);
   window.location.href = '/';

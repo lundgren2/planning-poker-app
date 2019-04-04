@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Query } from 'react-apollo';
 import Spinner from '../../Spinner';
 import GameStarted from './GameStarted';
@@ -27,7 +27,7 @@ class Game extends Component {
 
           return (
             <div>
-              <H2 mb={1}>Game started for: {story.title}</H2>
+              <H2 mb={1}>Game started for: {title}</H2>
               Share game with your team:
               <div>
                 <code>{window.location.href}</code>

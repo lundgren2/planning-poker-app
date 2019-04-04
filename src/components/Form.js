@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import theme from '../config/theme';
+// import theme from '../config/theme';
 
 export default styled('form')`
   /* css-variables */

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
-import gql from 'graphql-tag';
-import { Link } from 'react-router-dom';
 
 import { Flex } from '@rebass/emotion';
 import Button from '../Button';
