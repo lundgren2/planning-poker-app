@@ -4,7 +4,6 @@ import { H2 } from '../../Heading';
 import { UPDATE_STORY_SUBSCRIPTION, VOTE } from '../queries';
 import VoteButtons from '../../VoteButtons';
 import Button from '../../Button';
-import Spinner from '../../Spinner';
 import Chart from '../../Chart';
 
 export default class GameStarted extends Component {
