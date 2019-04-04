@@ -32,13 +32,9 @@ class Game extends Component {
               <div>
                 <code>{window.location.href}</code>
               </div>
-              <h3>Votes</h3>
-              {votes.map(vote => (
-                <div>{vote.value}</div>
-              ))}
+              <GameStarted story={story} />
               <br />
               Waiting for connections...
-              <GameStarted />
             </div>
           );
         }}

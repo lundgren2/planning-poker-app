@@ -51,3 +51,15 @@ export const CREATE_STORY = gql`
 //     }
 //   }
 // `;
+
+export const UPDATE_STORY_SUBSCRIPTION = gql`
+  subscription {
+    storyUpdated {
+      id
+      title
+      votes {
+        value
+      }
+    }
+  }
+`;

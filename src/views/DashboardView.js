@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { keyframes } from '@emotion/core';
 import Sidebar from '../components/Sidebar';
 import Container from '../components/Container';
+import GitHubLogo from '../images/github';
 
 const fadeIn = keyframes`
   0% {
@@ -50,6 +51,14 @@ const DashboardView = ({ children, location }) => {
       <Main>
         <Container>{children}</Container>
       </Main>
+      <a
+        className="github"
+        href="https://github.com/lundgren2/planning-poker-app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <GitHubLogo width="200" />
+      </a>
     </Wrapper>
   );
 };
