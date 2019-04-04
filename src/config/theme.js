@@ -10,7 +10,7 @@ const brand = {
 const colors = {
   ...brand,
   dark: '#444',
-  text: '#333',
+  text: '#555',
   grey: '#6b6b6b',
   black: '#000',
   white: '#fff',

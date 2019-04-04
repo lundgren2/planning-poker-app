@@ -22,7 +22,7 @@ const Story = ({ match, history }) => (
       return (
         <div>
           <H2>{story.title}</H2> <br />
-          {story.content}
+          {story.description}
           <br />
           <Button to={`/game/${story.id}`} as={Link} primary>
             Start game

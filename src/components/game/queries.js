@@ -5,7 +5,7 @@ export const GET_STORY = gql`
     story(id: $id) {
       id
       title
-      content
+      description
       active
     }
   }
@@ -16,7 +16,7 @@ export const GET_STORIES = gql`
     stories {
       id
       title
-      content
+      description
       author {
         name
       }
@@ -33,9 +33,18 @@ export const DELETE_STORY = gql`
 `;
 
 export const CREATE_STORY = gql`
-  mutation CreateStory($title: String!, $content: String!) {
-    createStory(title: $title, content: $content) {
+  mutation createStory($title: String!, $description: String) {
+    createStory(title: $title, description: $description) {
       title
     }
   }
 `;
+
+// export const VOTE = gql`
+//   mutation vote($userId: ID!, $value: Float) {
+//     vote(userId: ID!, value: value) {
+//       id
+//       value
+//     }
+//   }
+// `;

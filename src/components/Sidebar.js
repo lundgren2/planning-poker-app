@@ -2,8 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { Plus } from 'react-feather';
+import { logOut } from './auth/functions';
 import Logo from './Logo';
-import media from '../utils/media';
+// import { Link as RebassLink } from '@rebass/emotion';
+// import media from '../utils/media';
 
 const Sidebar = styled('nav')`
   position: fixed;
@@ -48,6 +50,8 @@ export default () => (
     <Link to="/stories/new">
       <Plus /> New story
     </Link>
+    <br />
+    <Link onClick={logOut}>Sign out</Link>
     <Credits>
       <a href="https://www.github.com/lundgren2" target="_blank" rel="me">
         © 2019 Tobias Lundgren

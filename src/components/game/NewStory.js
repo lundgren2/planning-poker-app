@@ -13,11 +13,11 @@ import { CREATE_STORY } from './queries';
 class NewStory extends Component {
   state = {
     title: '',
-    content: '',
+    description: '',
   };
 
   render() {
-    const { title, content } = this.state;
+    const { title, description } = this.state;
     const { history } = this.props;
     return (
       <Flex flexDirection="column">
@@ -29,13 +29,13 @@ class NewStory extends Component {
             placeholder="Title of story"
           />
           <InputText
-            onChange={e => this.setState({ content: e.target.value })}
-            value={content}
+            onChange={e => this.setState({ description: e.target.value })}
+            value={description}
             placeholder="Describe the story"
           />
           <Mutation
             mutation={CREATE_STORY}
-            variables={{ title, content }}
+            variables={{ title, description }}
             onCompleted={() => history.push(`/`)}
           >
             {mutation => (
