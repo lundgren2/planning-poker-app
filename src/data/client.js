@@ -6,15 +6,18 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition } from 'apollo-utilities';
 
+const apiUri = process.env.REACT_APP_GRAPHQL_URL;
+// TODO: fix to work with HTTPS
+const wsUri = apiUri.replace('http://', 'ws://');
 const wsLink = new WebSocketLink({
-  uri: process.env.REACT_APP_GRAPHQL_WS,
+  uri: wsUri,
   options: {
     reconnect: true,
   },
 });
 
 const httpLink = createHttpLink({
-  uri: process.env.REACT_APP_GRAPHQL_URL,
+  uri: apiUri,
 });
 
 const authLink = setContext((_, { headers }) => {
