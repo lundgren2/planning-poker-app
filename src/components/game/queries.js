@@ -43,14 +43,16 @@ export const CREATE_STORY = gql`
   }
 `;
 
-// export const VOTE = gql`
-//   mutation vote($userId: ID!, $value: Float) {
-//     vote(userId: ID!, value: value) {
-//       id
-//       value
-//     }
-//   }
-// `;
+export const VOTE = gql`
+  mutation vote($storyId: ID!, $value: Float) {
+    vote(storyId: $storyId, value: $value) {
+      id
+      votes {
+        value
+      }
+    }
+  }
+`;
 
 export const UPDATE_STORY_SUBSCRIPTION = gql`
   subscription {

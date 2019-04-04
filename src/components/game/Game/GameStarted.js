@@ -1,12 +1,44 @@
 import React, { Component } from 'react';
-import { Subscription } from 'react-apollo';
+import { Subscription, Mutation } from 'react-apollo';
 import { H2 } from '../../Heading';
-import { UPDATE_STORY_SUBSCRIPTION } from '../queries';
+import { UPDATE_STORY_SUBSCRIPTION, VOTE } from '../queries';
+import VoteButtons from '../../VoteButtons';
+import Button from '../../Button';
 
 export default class GameStarted extends Component {
+  state = {
+    optionValue: null,
+  };
+
+  handleOptionChange = e => {
+    this.setState({ optionValue: e.currentTarget.value });
+  };
+
   render() {
     const { id, title, votes } = this.props.story;
-    return <LiveView />;
+
+    const { optionValue } = this.state;
+    return (
+      <Mutation
+        mutation={VOTE}
+        variables={{ storyId: id, value: parseFloat(optionValue) }}
+      >
+        {mutation => (
+          <div>
+            <LiveView />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                mutation();
+              }}
+            >
+              <VoteButtons controller={this.handleOptionChange} />
+              <Button type="submit">Vote</Button>
+            </form>
+          </div>
+        )}
+      </Mutation>
+    );
   }
 }
 

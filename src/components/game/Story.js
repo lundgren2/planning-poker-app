@@ -18,6 +18,12 @@ const Story = ({ match, history }) => (
           <H2>{story.title}</H2> <br />
           {story.description}
           <br />
+          Current average estimation:{' '}
+          {story.votes
+            .map(vote => vote.value)
+            .reduce((sum, value) => sum + value) / story.votes.length}{' '}
+          based on {story.votes.length} votes!
+          <br />
           <Button to={`/game/${story.id}`} as={Link} primary>
             Start game
           </Button>

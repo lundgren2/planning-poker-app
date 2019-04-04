@@ -2,6 +2,7 @@ import React from 'react';
 
 const style = {
   width: 40,
+  height: 40,
   position: 'absolute',
   bottom: 20,
   right: 20,
