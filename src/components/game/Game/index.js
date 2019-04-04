@@ -7,8 +7,6 @@ import { H2 } from '../../Heading';
 
 import { GET_STORY } from '../queries';
 
-// add get_story_subscription query and show live results
-
 class Game extends Component {
   state = {
     started: false,
@@ -34,7 +32,6 @@ class Game extends Component {
               </div>
               <GameStarted story={story} />
               <br />
-              Waiting for connections...
             </div>
           );
         }}

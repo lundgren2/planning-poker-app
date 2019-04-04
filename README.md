@@ -20,8 +20,7 @@ Estimate how complex a task is for a team of developers to complete, by using a 
     cd planning-poker-app/
     # install all dependencies
     yarn
-    # add default ENV variables
-    mv .env.example .env.development
+
     ```
 
 3.  **Start the app.**
@@ -31,6 +30,8 @@ Estimate how complex a task is for a team of developers to complete, by using a 
     ```sh
     # start the app
     yarn start
+
+    # if error, check .env file
     ```
 
-    The app is now running at `http://localhost:8000`. Start a new project and the browser will update in real time!
+    The app is now running at `http://localhost:3000`. Start a new project and the browser will update in real time!
