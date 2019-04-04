@@ -10,16 +10,25 @@ import Chart from '../../Chart';
 export default class GameStarted extends Component {
   state = {
     optionValue: null,
+    hasVoted: false,
   };
 
   handleOptionChange = e => {
     this.setState({ optionValue: e.currentTarget.value });
   };
 
+  handleVoteClick = () => {
+    if (!this.state.hasVoted) setTimeout(this.handleVoteClick, 2000);
+
+    this.setState(prevState => ({
+      hasVoted: !prevState.hasVoted,
+    }));
+  };
+
   render() {
     const { id, title, votes } = this.props.story;
 
-    const { optionValue } = this.state;
+    const { optionValue, hasVoted } = this.state;
     return (
       <div>
         <Mutation
@@ -33,8 +42,17 @@ export default class GameStarted extends Component {
                 mutation();
               }}
             >
+              <br />
               <VoteButtons controller={this.handleOptionChange} />
-              <Button type="submit">Vote</Button>
+              <Button
+                type="submit"
+                style={{
+                  backgroundColor: hasVoted ? 'green' : '',
+                }}
+                onClick={this.handleVoteClick}
+              >
+                Vote
+              </Button>
             </form>
           )}
         </Mutation>
@@ -60,9 +78,6 @@ export const LiveView = () => (
           <H2>Game Started</H2>
           <h3>Votes</h3>
           <Chart votes={votes} />
-          {votes.map((vote, index) => (
-            <div key="index">{vote.value}</div>
-          ))}
           <code>{JSON.stringify(data, null, 0)}</code>
         </>
       );
