@@ -7,6 +7,9 @@ export const GET_STORY = gql`
       title
       description
       active
+      votes {
+        value
+      }
     }
   }
 `;

@@ -23,6 +23,8 @@ class Game extends Component {
           if (error) return `Error!: ${error}`;
           if (!story) return <Redirect to="/" />;
 
+          const { title, votes } = story;
+
           return (
             <div>
               <H2 mb={1}>Game started for: {story.title}</H2>
@@ -30,6 +32,10 @@ class Game extends Component {
               <div>
                 <code>{window.location.href}</code>
               </div>
+              <h3>Votes</h3>
+              {votes.map(vote => (
+                <div>{vote.value}</div>
+              ))}
               <br />
               Waiting for connections...
               <GameStarted />
