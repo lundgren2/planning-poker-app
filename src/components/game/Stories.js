@@ -16,11 +16,17 @@ export default () => (
         <>
           <H2>Stories</H2>
           <CardContainer>
-            {data.stories.map(story => (
-              <Link to={`/stories/${story.id}`}>
-                <Card key={story.id} story={story} refresh={() => refetch()} />
-              </Link>
-            ))}
+            {data.stories
+              .map(story => (
+                <Link to={`/stories/${story.id}`}>
+                  <Card
+                    key={story.id}
+                    story={story}
+                    refresh={() => refetch()}
+                  />
+                </Link>
+              ))
+              .reverse()}
             <Link to="/stories/new">
               <AddCard />
             </Link>

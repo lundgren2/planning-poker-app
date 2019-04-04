@@ -23,14 +23,14 @@ export default () => {
     <Router>
       <>
         <Route path="/login" component={LoginView} />
-        <Switch>
-          <DashboardView>
-            <PrivateRoute exact path="/" component={Stories} />
+        <DashboardView>
+          <PrivateRoute exact path="/" component={Stories} />
+          <Switch>
             <PrivateRoute path="/stories/new" component={NewStory} />
             <PrivateRoute path="/stories/:id" component={Story} />
-            <PrivateRoute path="/game/:id" component={Game} />
-          </DashboardView>
-        </Switch>
+          </Switch>
+          <PrivateRoute path="/game/:id" component={Game} />
+        </DashboardView>
       </>
     </Router>
   );
