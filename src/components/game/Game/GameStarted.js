@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Subscription, Mutation } from 'react-apollo';
-import { H2 } from '../../Heading';
+import { Link } from 'react-router-dom';
+import { Text } from '@rebass/emotion';
+import { H2, H3 } from '../../Heading';
 import { UPDATE_STORY_SUBSCRIPTION, VOTE } from '../queries';
 import VoteButtons from '../../VoteButtons';
 import Button from '../../Button';
@@ -45,12 +47,14 @@ export default class GameStarted extends Component {
               <VoteButtons controller={this.handleOptionChange} />
               <Button
                 type="submit"
-                style={{
-                  backgroundColor: hasVoted ? 'green' : '',
-                }}
+                className={hasVoted ? 'green' : ''}
                 onClick={this.handleVoteClick}
+                primary
               >
                 Vote
+              </Button>
+              <Button to={`/stories/${id}`} as={Link}>
+                Back
               </Button>
             </form>
           )}
@@ -74,7 +78,6 @@ export const LiveView = () => (
 
       return (
         <>
-          <H2>Game Started</H2>
           <h3>Votes</h3>
           <Chart votes={votes} />
           <code>{JSON.stringify(data, null, 0)}</code>

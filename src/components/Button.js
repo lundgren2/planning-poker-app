@@ -15,6 +15,8 @@ const Button = styled('button')`
   border-radius: 3rem;
   cursor: pointer;
   text-decoration: none;
+  animation: background-color 500ms ease;
+
   &:hover {
     background-color: ${props =>
       props.primary ? theme.colors.linkHover : 'rgba(255, 255, 255, 0.2)'};
@@ -22,6 +24,10 @@ const Button = styled('button')`
   }
   &:focus {
     outline: none;
+  }
+  &.green {
+    background-color: green;
+    border-color: green;
   }
 `;
 

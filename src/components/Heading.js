@@ -12,7 +12,7 @@ const BaseHeading = props => (
 );
 
 const H2 = props => (
-  <BaseHeading fontSize={5} as="h2" mb={4} mt={5} {...props} />
+  <BaseHeading fontSize={6} as="h2" mb={4} mt={5} {...props} />
 );
 const H3 = props => (
   <BaseHeading fontSize={4} as="h3" mb={3} mt={4} {...props} />

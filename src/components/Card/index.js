@@ -29,6 +29,7 @@ const CardItem = styled('div')`
   text-decoration: none;
   transition: ${props => props.theme.animation};
   cursor: pointer;
+  min-height: 302px;
 
   .card-item__icon-container {
     display: flex;
@@ -68,8 +69,10 @@ const CardItem = styled('div')`
 export default ({ story }) => (
   <CardItem className="card-item">
     <img src={eslogo} alt="" srcSet="" />
-    <h2 style={{ wordBreak: 'break-all' }}>{story.title}</h2>
-    <span className="card-item__text">{story.description}</span>
+    <div>
+      <h2 style={{ wordBreak: 'break-all' }}>{story.title}</h2>
+      <span className="card-item__text">{story.description}</span>
+    </div>
   </CardItem>
 );
 
