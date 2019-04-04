@@ -2,6 +2,10 @@
 
 Estimate how complex a task is for a team of developers to complete, by using a common technique that is used is called "planning poker".
 
+Live url: https://planning-poker-app.herokuapp.com/
+
+Server endpoint: https://planning-poker-graphql.herokuapp.com/graphql
+
 ## Instructions
 
 1.  **Clone the project and install**

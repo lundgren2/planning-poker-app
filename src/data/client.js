@@ -10,7 +10,7 @@ const apiUri = process.env.REACT_APP_GRAPHQL_URL;
 // TODO: fix to work with HTTPS
 const wsUri = apiUri.replace('http://', 'ws://');
 const wsLink = new WebSocketLink({
-  uri: wsUri,
+  uri: 'wss://planning-poker-graphql.herokuapp.com/graphql',
   options: {
     reconnect: true,
   },
