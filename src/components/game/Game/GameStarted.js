@@ -5,6 +5,7 @@ import { UPDATE_STORY_SUBSCRIPTION, VOTE } from '../queries';
 import VoteButtons from '../../VoteButtons';
 import Button from '../../Button';
 import Spinner from '../../Spinner';
+import Chart from '../../Chart';
 
 export default class GameStarted extends Component {
   state = {
@@ -58,6 +59,7 @@ export const LiveView = () => (
         <>
           <H2>Game Started</H2>
           <h3>Votes</h3>
+          <Chart votes={votes} />
           {votes.map((vote, index) => (
             <div key="index">{vote.value}</div>
           ))}
