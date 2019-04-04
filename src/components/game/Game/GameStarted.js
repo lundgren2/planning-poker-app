@@ -21,7 +21,6 @@ export default class GameStarted extends Component {
     const { optionValue } = this.state;
     return (
       <div>
-        <LiveView />
         <Mutation
           mutation={VOTE}
           variables={{ storyId: id, value: parseFloat(optionValue) }}
@@ -38,6 +37,7 @@ export default class GameStarted extends Component {
             </form>
           )}
         </Mutation>
+        <LiveView />
       </div>
     );
   }
@@ -61,7 +61,7 @@ export const LiveView = () => (
           {votes.map((vote, index) => (
             <div key="index">{vote.value}</div>
           ))}
-          {JSON.stringify(data, null, 0)}
+          <code>{JSON.stringify(data, null, 0)}</code>
         </>
       );
     }}
