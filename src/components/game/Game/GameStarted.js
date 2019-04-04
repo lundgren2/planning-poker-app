@@ -19,13 +19,13 @@ export default class GameStarted extends Component {
 
     const { optionValue } = this.state;
     return (
-      <Mutation
-        mutation={VOTE}
-        variables={{ storyId: id, value: parseFloat(optionValue) }}
-      >
-        {mutation => (
-          <div>
-            <LiveView />
+      <div>
+        <LiveView />
+        <Mutation
+          mutation={VOTE}
+          variables={{ storyId: id, value: parseFloat(optionValue) }}
+        >
+          {mutation => (
             <form
               onSubmit={e => {
                 e.preventDefault();
@@ -35,9 +35,9 @@ export default class GameStarted extends Component {
               <VoteButtons controller={this.handleOptionChange} />
               <Button type="submit">Vote</Button>
             </form>
-          </div>
-        )}
-      </Mutation>
+          )}
+        </Mutation>
+      </div>
     );
   }
 }
@@ -58,8 +58,8 @@ export const LiveView = () => (
         <>
           <H2>Game Started</H2>
           <h3>Votes</h3>
-          {votes.map(vote => (
-            <div>{vote.value}</div>
+          {votes.map((vote, index) => (
+            <div key="index">{vote.value}</div>
           ))}
           {JSON.stringify(data, null, 0)}
         </>

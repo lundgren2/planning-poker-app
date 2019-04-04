@@ -12,9 +12,8 @@ export default ({ controller }) => {
       <p>{DESCRIPTION_TEXT}</p>
       <br />
       {options.map((option, index) => (
-        <>
+        <span key={index}>
           <input
-            key={index}
             type="radio"
             name="value"
             value={option}
@@ -24,7 +23,7 @@ export default ({ controller }) => {
             {' '}
             {option}{' '}
           </Text>
-        </>
+        </span>
       ))}
     </div>
   );

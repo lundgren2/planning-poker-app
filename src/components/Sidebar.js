@@ -51,7 +51,9 @@ export default () => (
       <Plus /> New story
     </Link>
     <br />
-    <Link onClick={logOut}>Sign out</Link>
+    <Link to="" onClick={logOut}>
+      Sign out
+    </Link>
     <Credits>
       <a
         href="https://www.github.com/lundgren2"
