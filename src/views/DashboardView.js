@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { withRouter } from 'react-router-dom';
 import { keyframes } from '@emotion/core';
 import Sidebar from '../components/Sidebar';
 import Container from '../components/Container';
@@ -40,11 +41,17 @@ const Main = styled('main')`
   will-change: opacity;
 `;
 
-export default ({ children }) => (
-  <Wrapper>
-    <Sidebar />
-    <Main>
-      <Container>{children}</Container>
-    </Main>
-  </Wrapper>
-);
+const DashboardView = ({ children, location }) => {
+  if (location && location.pathname === '/login') return false;
+
+  return (
+    <Wrapper>
+      <Sidebar />
+      <Main>
+        <Container>{children}</Container>
+      </Main>
+    </Wrapper>
+  );
+};
+
+export default withRouter(DashboardView);

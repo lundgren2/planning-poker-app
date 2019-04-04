@@ -18,18 +18,20 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
   />
 );
 
-export default (
-  <Router>
-    <>
-      <Route path="/login" component={LoginView} />
-      <DashboardView>
-        <PrivateRoute exact path="/" component={Stories} />
+export default () => {
+  return (
+    <Router>
+      <>
+        <Route path="/login" component={LoginView} />
         <Switch>
-          <PrivateRoute path="/stories/new" component={NewStory} />
-          <PrivateRoute path="/stories/:id" component={Story} />
+          <DashboardView>
+            <PrivateRoute exact path="/" component={Stories} />
+            <PrivateRoute path="/stories/new" component={NewStory} />
+            <PrivateRoute path="/stories/:id" component={Story} />
+            <PrivateRoute path="/game/:id" component={Game} />
+          </DashboardView>
         </Switch>
-        <PrivateRoute path="/game/:id" component={Game} />
-      </DashboardView>
-    </>
-  </Router>
-);
+      </>
+    </Router>
+  );
+};
