@@ -1,6 +1,29 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
+const options = {
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          min: 0,
+          max: 5,
+          maxTicksLimit: 1,
+          fontSize: 18,
+          maxRotation: 0.00001,
+          padding: 10,
+          labelOffset: 10,
+        },
+        beginAtZero: true,
+        gridLines: {
+          drawTicks: false,
+        },
+      },
+    ],
+  },
+};
+
 export default ({ votes }) => {
   const chartData = {
     labels: ['0', '1 / 2', '3', '5', '8', '13'],
@@ -33,14 +56,7 @@ export default ({ votes }) => {
 
   return (
     <div>
-      <Bar
-        data={chartData}
-        width={450}
-        height={320}
-        options={{
-          maintainAspectRatio: false,
-        }}
-      />
+      <Bar data={chartData} width={450} height={320} options={options} />
     </div>
   );
 };
