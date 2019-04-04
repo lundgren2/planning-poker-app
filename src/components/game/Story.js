@@ -67,7 +67,13 @@ const Story = ({ match, history }) => {
               onCompleted={() => history.push(`/`)}
             >
               {mutation => (
-                <Link to="" onClick={() => handleDeleteClick(mutation)}>
+                <Link
+                  to=""
+                  onClick={e => {
+                    e.preventDefault();
+                    handleDeleteClick(mutation);
+                  }}
+                >
                   Delete
                 </Link>
               )}
