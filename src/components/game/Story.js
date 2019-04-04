@@ -37,7 +37,11 @@ const Story = ({ match, history }) => (
             variables={{ id }}
             onCompleted={() => history.push(`/`)}
           >
-            {mutation => <Link onClick={mutation}>Delete</Link>}
+            {mutation => (
+              <Link to="" onClick={mutation}>
+                Delete
+              </Link>
+            )}
           </Mutation>
           <hr />
           <h4>Data</h4>

@@ -18,7 +18,7 @@ export default () => (
           <CardContainer>
             {data.stories
               .map(story => (
-                <Link to={`/stories/${story.id}`}>
+                <Link key={story.id} to={`/stories/${story.id}`}>
                   <Card
                     key={story.id}
                     story={story}

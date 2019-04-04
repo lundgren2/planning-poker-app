@@ -4,6 +4,7 @@ import { H2 } from '../../Heading';
 import { UPDATE_STORY_SUBSCRIPTION, VOTE } from '../queries';
 import VoteButtons from '../../VoteButtons';
 import Button from '../../Button';
+import Spinner from '../../Spinner';
 
 export default class GameStarted extends Component {
   state = {
@@ -48,9 +49,8 @@ export const LiveView = () => (
     // variables={story.id}
   >
     {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :</p>;
-      console.log(data);
+      if (loading) return null;
+      if (error) return `Error!: ${error}`;
 
       const { id, title, votes } = data.storyUpdated;
 
